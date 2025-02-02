@@ -60,18 +60,14 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
-    base: "/goit-js-hw-09/", // ✅ Добавлен правильный base path для GitHub Pages
-    define: {
-      [command === 'serve' ? 'global' : '_global']: {},
-    },
+    base: "/goit-js-hw-09/", // ✅ Базовый путь для GitHub Pages
     root: 'src',
     build: {
-      sourcemap: true,
+      outDir: '../dist',
+      emptyOutDir: true,
       rollupOptions: {
         input: glob.sync('./src/*.html'),
       },
-      outDir: '../dist',
-      emptyOutDir: true,
     },
     plugins: [
       injectHTML(),
